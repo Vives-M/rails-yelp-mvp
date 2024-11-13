@@ -1,11 +1,16 @@
 <div class="container">
-<h1><%= @restaurant.name%></h1>
-<h2><%= @restaurant.address%></h2>
-<h3><%= @restaurant.phone_number%></h3>
+  <h1 class="m-3"><%= @restaurant.name%></h1>
+  <h2><i class="fa-solid fa-location-dot"></i> <%= @restaurant.address%></h2>
+  <h3><i class="fa-solid fa-phone"></i> <%= @restaurant.phone_number%></h3>
 
-<%= @restaurant.reviews%>
-
-<%= link_to "Ajouter un avis", restaurants_path %>
-
-<%= link_to "Retour à la liste", restaurants_path %>
+  <p ><strong>Reviews</strong></p>
+  <ul class="list-group card">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item card-body p-2"><%= review.content %></li>
+    <% end %>
+  </ul>
+  <div class="d-flex justify-content-center">
+    <button type="button" class="btn btn-info btn-lg m-3"><%= link_to "Ajouter un avis",  new_restaurant_review_path(@restaurant), class:"text-decoration-none text-reset fw-semibold" %></button>
+    <button type="button" class="btn btn-success btn-lg m-3"><%= link_to "Retour à la liste", restaurants_path, class:"text-decoration-none text-reset fw-semibold"  %></button>
+  </div>
 </div>

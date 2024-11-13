@@ -1,7 +1,9 @@
-<h1>Restaurants :</h1>
+<div class="container">
+<h1 class="text-center m-3">Restaurants :</h1>
 
-<ul>
+<ul class="list-group list-group-flush">
   <% @restaurants.each do |restaurant| %>
-    <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
+    <li class="list-group-item list-group-item-info text-center"><%= link_to restaurant.name, restaurant_path(restaurant), class:"text-decoration-none text-reset fw-semibold" %></li>
   <% end %>
 </ul>
+</div>
